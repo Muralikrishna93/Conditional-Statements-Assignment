@@ -32,7 +32,7 @@ else if (dayOfWeek.toLowerCase() === "sunday") {
     finalPrice = ticketPrice - (ticketPrice * 10 / 100); 
 }
 
-console.log("Final Ticket Price: " + finalPrice);
+console.log(`Final Ticket Price: ${finalPrice}`);
 
 console.log("------------------------------------------------------------------------------------------------------");
 
@@ -73,7 +73,7 @@ else {
     benefit = "No Promotion Applied";
 }
 
-console.log("Customer Benefit: " + benefit);
+console.log(`Customer Benefit: ${benefit} `);
 
 console.log("------------------------------------------------------------------------------------------------------");
 
@@ -162,7 +162,7 @@ else {
     }
 }
 
-console.log("Shipping Charge: ₹" + shippingCharge);
+console.log(`Shipping Charge: ${shippingCharge}`);
 
 console.log("------------------------------------------------------------------------------------------------------");
 
@@ -383,3 +383,302 @@ if(valid1){
 }
 
 console.log("------------------------------------------------------------------------------------------------------");
+
+
+
+
+
+
+// 9. A university library charges fines based on the type of book borrowed: Fiction, 
+// Non-Fiction, Reference, or Magazine. The fine per day is different for each category. 
+// Using a switch case, calculate the fine based on the number of overdue days and 
+// book category, applying a 50% discount if the user is a student. 
+
+let bookCategory = "Fiction"; 
+let overdueDays = 5;
+let isStudent1 = true;
+let finePerDay = 0;
+let valid3 = true;
+
+switch (bookCategory.toLowerCase()) {
+    case "fiction":
+        finePerDay = 2;
+        break;
+    case "non-fiction":
+        finePerDay = 4;
+        break;
+    case "reference":
+        finePerDay = 6;
+        break;
+    case "magazine":
+        finePerDay = 8;
+        break;
+    default:
+        valid3 = false;
+}
+
+if (valid3) {
+
+    let totalFine = finePerDay * overdueDays;
+    if (isStudent1) {
+        totalFine = totalFine - (totalFine * 50 / 100); 
+    }
+
+    console.log(`Book Category: ${bookCategory}`);
+    console.log(`Overdue Days: ${overdueDays}`);
+    console.log(`Final Fine: ${totalFine}`);
+} else {
+    console.log("Invalid book category");
+}
+
+console.log("------------------------------------------------------------------------------------------------------");
+
+
+
+
+
+// 10. An online movie booking system has categories: Standard, Premium, VIP, and 
+// Balcony. Each has a fixed ticket price, and booking during weekends increases the 
+// price by 20%. Using a switch case, determine the final amount the user needs to 
+// pay based on their category choice and whether it’s a weekday or weekend. 
+
+let category1 = "Premium"; 
+let isWeekend1 = true; 
+let basePrice = 0;
+let valid4 = true;
+
+switch (category1.toLowerCase()) {
+    case "standard":
+        basePrice = 150;
+        break;
+    case "premium":
+        basePrice = 250;
+        break;
+    case "vip":
+        basePrice = 300;
+        break;
+    case "balcony":
+        basePrice = 400;
+        break;
+    default:
+        valid4 = false;
+}
+
+if (valid4) {
+    let finalAmount = basePrice;
+
+    if (isWeekend1) {
+        finalAmount = finalAmount + (finalAmount * 20 / 100); 
+    }
+
+    console.log(`Category: ${category1}`);
+    console.log(`Final Ticket Price: ${finalAmount}`);
+} else {
+    console.log("Invalid category selected");
+}
+
+console.log("------------------------------------------------------------------------------------------------------");
+
+
+
+
+
+// 11. An online exam system assigns grades based on percentage: 90% and above = 
+// Grade A, 80–89% = Grade B, 70–79% = Grade C, 60–69% = Grade D, 50–59% = 
+// Grade E, and below 50% = Fail. Additionally, if the student’s score is between 
+// 45–49% and they are in the final year, they get a chance for re-evaluation. Implement 
+// this grading logic using an else-if ladder. 
+
+let percentage = 49;  
+let isFinalYear = true;  
+let grade = "";
+
+if (percentage >= 90) {
+    grade = "Grade A";
+} 
+else if (percentage >= 80) {
+    grade = "Grade B";
+} 
+else if (percentage >= 70) {
+    grade = "Grade C";
+} 
+else if (percentage >= 60) {
+    grade = "Grade D";
+} 
+else if (percentage >= 50) {
+    grade = "Grade E";
+} 
+else {
+
+    grade = "Fail";
+    if (percentage >= 45 && percentage <= 49 && isFinalYear) {
+        grade = "Eligible for Re-evaluation";
+    }
+}
+
+console.log(`Percentage: ${percentage} %`);
+console.log(`Result: ${grade}`);
+
+console.log("------------------------------------------------------------------------------------------------------");
+
+
+
+
+
+// 12. A company calculates bonuses based on years of experience: more than 15 years = 
+// ₹50,000, 10–15 years = ₹30,000, 5–9 years = ₹20,000, 2–4 years = ₹10,000, and 
+// less than 2 years = ₹5,000. If the employee joined in December, they get an extra 
+// ₹2000 bonus regardless of experience. Write the program. 
+
+let yearsOfExperience = 10;
+let joiningMonth = "December";
+let bonus = 0;
+
+if (yearsOfExperience > 15) {
+    bonus = 50000;
+} 
+else if (yearsOfExperience >= 10 && yearsOfExperience <= 15) {
+    bonus = 30000;
+} 
+else if (yearsOfExperience >= 5 && yearsOfExperience <= 9) {
+    bonus = 20000;
+} 
+else if (yearsOfExperience >= 2 && yearsOfExperience <= 4) {
+    bonus = 10000;
+} 
+else {
+    bonus = 5000;
+}
+
+if (joiningMonth.toLowerCase() === "december") {
+    bonus += 2000;
+}
+
+console.log(`Years of Experience: ${yearsOfExperience}`);
+console.log(`Joining Month: ${joiningMonth}`);
+console.log(`Total Bonus: ${bonus} `);
+
+console.log("------------------------------------------------------------------------------------------------------");
+
+
+
+
+// 13. A temperature control system categorizes weather: above 40°C = Extremely Hot, 
+// 30–39°C = Hot, 20–29°C = Warm, 10–19°C = Cool, and below 10°C = Cold. If it’s 
+// raining, append "and Rainy" to the category. Implement this with an else-if ladder. 
+
+let temperature = -12;  
+let isRaining = true;  
+let weatherCategory = "";
+
+if (temperature > 40) {
+    weatherCategory = "Extremely Hot";
+} 
+else if (temperature >= 30 && temperature <= 39) {
+    weatherCategory = "Hot";
+} 
+else if (temperature >= 20 && temperature <= 29) {
+    weatherCategory = "Warm";
+} 
+else if (temperature >= 10 && temperature <= 19) {
+    weatherCategory = "Cool";
+} 
+else {
+    weatherCategory = "Cold";
+}
+
+if (isRaining) {
+    weatherCategory += " and Rainy";
+}
+
+console.log(`Temperature: ${temperature} degree C`);
+console.log(`Weather Category: ${weatherCategory}`);
+
+console.log("------------------------------------------------------------------------------------------------------");
+
+
+
+
+
+// 14. An online store offers discounts: above or equals to ₹20,000 = 25%, ₹15,000–₹19,999 = 20%, 
+// ₹10,000–₹14,999 = 15%, ₹5,000–₹9,999 = 10%, below ₹5,000 = no discount. If it’s 
+// the customer’s birthday, add an extra 5% discount to whichever category they fall 
+// into. Implement this logic. 
+
+let purchaseAmount = 20000;
+let isBirthday = true;
+let discountPercent = 0;
+
+if (purchaseAmount >= 20000) {
+    discountPercent = 25;
+} 
+else if (purchaseAmount >= 15000 && purchaseAmount <= 19999) {
+    discountPercent = 20;
+} 
+else if (purchaseAmount >= 10000 && purchaseAmount <= 14999) {
+    discountPercent = 15;
+} 
+else if (purchaseAmount >= 5000 && purchaseAmount <= 9999) {
+    discountPercent = 10;
+} 
+else {
+    discountPercent = 0;
+}
+
+if (isBirthday) {
+    discountPercent += 5;
+}
+
+let discountAmount = purchaseAmount * discountPercent / 100;
+let finalPrize = purchaseAmount - discountAmount;
+
+console.log(`Purchase Amount: ${purchaseAmount}`);
+console.log(`Discount Applied: ${discountPercent}%`);
+console.log(`Final Price after discount: ${finalPrize}`);
+
+console.log("------------------------------------------------------------------------------------------------------");
+
+
+
+
+
+// 15. A marathon categorizes runners by completion time: under 2 hours = Elite, 2–3 hours 
+// = Advanced, 3–4 hours = Intermediate, 4–5 hours = Beginner, and above 5 hours = 
+// Novice. If the runner is under 18 years old, they get a special "Youth" badge in 
+// addition to their category. Implement this. 
+
+let completionTime = 3.5; 
+let runnerAge = 16;
+let marathonCategory = "";
+
+if (completionTime < 2) {
+    marathonCategory = "Elite";
+} 
+else if (completionTime >= 2 && completionTime < 3) {
+    marathonCategory = "Advanced";
+} 
+else if (completionTime >= 3 && completionTime < 4) {
+    marathonCategory = "Intermediate";
+} 
+else if (completionTime >= 4 && completionTime < 5) {
+    marathonCategory = "Beginner";
+} 
+else {
+    marathonCategory = "Novice";
+}
+
+if (runnerAge < 18) {
+    marathonCategory += " + Youth";
+}
+
+console.log(`Completion Time: ${completionTime} hours`);
+console.log(`Runner Age: ${runnerAge}`);
+console.log(`Category: ${marathonCategory}`);
+
+console.log("------------------------------------------------------------------------------------------------------");
+
+
+
+
+
+
